@@ -8,7 +8,7 @@ git@github.com:zjw14174/myweb.git
 然后在项目目录里使用git
 ```
 
-#### git使用
+#### git从本地第一次使用
 
 ```
 生成密钥
@@ -30,5 +30,11 @@ git commit -m "blogweb test"
 git remote add origin git@github.com:zjw14174/blogweb.git
 推送到远程仓库
 git push -u origin master
+```
+
+#### git修改文件后提交操作
+
+```
+
 ```
 
