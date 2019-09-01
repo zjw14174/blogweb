@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} 四个二带俩王 {% endblock %}
+
+{% block content %}
+{% for blog in blogs %}
+    <div id="contentleftHome">
+        <div class="m-post">
+            <div class="title">
+                <span class="date">{{ blog.publish.date }}</span>
+                <a href="{% url 'blog:detail' blog.id %}">{{ blog.title }}</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    <!--
+<div id="pagenavi">
+<span>1</span>
+    <a href="https://lvwenhan.com/page/2">2</a>
+    <a href="https://lvwenhan.com/page/3">3</a>
+    <a href="https://lvwenhan.com/page/4">4</a>
+    <a href="https://lvwenhan.com/page/5">5</a>
+</div>
+-->
+{% endblock %}

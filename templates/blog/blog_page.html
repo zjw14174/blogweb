@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %} 四个二带俩王 {% endblock %}
+
+{% block content %}
+{% for blog in pages %}
+    <div id="contentleftHome">
+        <div class="m-post">
+            <div class="title">
+                <span class="date">{{ blog.publish.date }}</span>
+                <a href="{% url 'blog:detail' blog.id %}">{{ blog.title }}</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    
+<div id="pagenavi">
+{% for index in pages.paginator.page_range %}
+    {% if index == pages.number %}
+        <span>{{ index }}</span>
+    {% else %}
+        <a href="{% url 'blog:pages' index %}">{{ index }}</a>
+    {% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}

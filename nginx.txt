@@ -1,0 +1,14 @@
+server {
+	listen 81;
+	server_name _;
+		location / {
+		include /etc/nginx/uwsgi_params;
+		uwsgi_pass unix:///usr/src/app/uwsgi/uwsgi.sock;
+		}
+	location /static/ {
+		alias /usr/src/app/static/;
+		}
+    location /media/ {
+		alias /usr/src/app/static/uploads/;
+		}
+}

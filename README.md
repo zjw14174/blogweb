@@ -22,6 +22,8 @@ git config --global user.name "zjw14174"
 git config --global user.email "136671988@qq.com"
 初始化git
 git init
+添加要推送的文件
+git add .
 提交修改
 git commit -m "blogweb test"
 设置远程仓库地址

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} {{ article.title }} {% endblock %}
+
+{% block content %}
+
+
+    <div id="contentleftArticle">
+        <h2 class="title">{{ article.title }}</h2>
+        <div style="text-align: center; margin-bottom: 50px; padding-bottom: 10px; border-bottom: 1px #efefef solid; font-size: 14px;">
+            修改时间：{{ article.modifydate }}
+            <span>&nbsp;&nbsp;/<!--&nbsp;&nbsp;</span> 阅读数：先占用还没有添加数据库 <span>&nbsp;&nbsp;/-->&nbsp;&nbsp;</span>分类：
+            <a href="{% url 'blog:types' article.articletype_id %}">{{ article.articletype.type }}</a>
+	    </div>
+
+
+
+<div id="test-editormd-view">
+            <textarea style="display:none;" name="test-editormd-markdown-doc">{{article.body | safe}}</textarea>
+        </div>
+<script src="{% static 'mdeditor/js/jquery.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/marked.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/prettify.min.js' %}"></script>
+    <!--
+    <script src="{% static 'mdeditor/js/lib/raphael.min.js' %}"></script>
+    <script src="{% static 'mdeditor/js/lib/underscore.min.js' %}"></script>
+    <script src="{% static 'mdeditor/js/lib/sequence-diagram.min.js' %}"></script>
+    <script src="{% static 'mdeditor/js/lib/flowchart.min.js' %}"></script>
+    <script src="{% static 'mdeditor/js/lib/jquery.flowchart.min.js' %}"></script>
+    -->
+<script src="{% static 'mdeditor/js/editormd.js' %}"></script>
+
+<script type="text/javascript">
+    testEditormdView2 = editormd.markdownToHTML("test-editormd-view", {
+        htmlDecode      : "style,script,iframe",  // you can filter tags decode
+        emoji           : true,
+        taskList        : true,
+        tex             : true,  // 默认不解析
+        flowChart       : true,  // 默认不解析
+        sequenceDiagram : true,  // 默认不解析
+    });
+</script>
+
+
+
+    </div>
+    {% endblock %}

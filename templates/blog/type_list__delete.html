@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %} {{ title.type }} {% endblock %}
+
+{% block content %}
+{% for article in articles %}
+    <div id="contentleftHome">
+        <div class="m-post">
+            <div class="title">
+                <span class="date">{{ article.publish.date }}</span>
+                <a href="{% url 'blog:detail' article.id %}">{{ article.title }}</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    <!--
+<div id="pagenavi">
+{% for index in pages.paginator.page_range %}
+    {% if index == pages.number %}
+        <span>{{ index }}</span>
+    {% else %}
+        <a href="{% url 'blog:pages' index %}">{{ index }}</a>
+    {% endif %}
+{% endfor %}
+</div>
+-->
+{% endblock %}

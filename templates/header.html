@@ -1,0 +1,26 @@
+{% load staticfiles %}
+  <div id="wrap">
+    <div id="header">
+      <a href="{% url 'blog:index' %}">
+        <img src="{% static 'images/logo.png' %}" id="logo" alt="LOGO">
+        <h1 id="title">四个二带俩王</h1>
+      </a>
+      <h3 id="slogan">If you don't want to learn. Go home!</h3>
+    </div> <!-- end of #header -->
+
+    <div id="nav" class="navbar-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <div id="navbar" class="navbar-collapse collapse">
+              	<ul class="bar nav navbar-nav">
+                    {% for type in types %}
+                    <li class="item common"><a href="{% url 'blog:types' type.id %}">{{ type.type }}</a></li>
+                    {% endfor%}
+                </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
