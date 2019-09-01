@@ -35,6 +35,14 @@ git push -u origin master
 #### git修改文件后提交操作
 
 ```
+遍历检查当前文件夹下所有文件
+git add .
+提交更改,-m后面是描述信息
+git commit -m "modify test"
+推送到远程仓库
+git push -u origin master
 
 ```
+
+
 
